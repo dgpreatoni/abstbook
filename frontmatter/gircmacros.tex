@@ -1,0 +1,431 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Hystrix, the Italian Journal of Mammalogy
+%%
+%% common LaTeX macros to typeset both cover and frontmatter
+%% this file must be \indclude{}d in any issue cover and frontmatter
+%%
+%% created 20120522 prea@uninsubria.it
+%% version 1.0
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{colortbl}
+%\usepackage{ccicons}
+\usepackage{cclicenses}
+
+%% if you have to typeset an URL, just use \url{...}
+\usepackage[hyphens]{url}
+\urlstyle{rm}
+%% we heed the Euro symbol, use \EUR{<number>}
+\usepackage{eurosym}
+%% just to have some placeholder text handy
+\usepackage{lipsum}
+
+%% as from hysarticle class, same lettering
+\usepackage[T1]{fontenc} %
+\usepackage{lmodern} % family name is ulg
+\usepackage[lf]{venturis} % lf for lining figures glyphs, family name is yv1
+%\renewcommand*\familydefault{\sfdefault} 
+\usepackage{tgtermes} % family name is qtm
+\fontfamily{qtm}\selectfont
+\gdef\rmdefault{qtm} % set tgtermes as roman default font
+\gdef\sfdefault{yv1} % set venturis sans as sans serif default font
+
+
+%% redefine some fonts
+\usepackage[sfdefault]{FiraSans}
+
+\usepackage{tcolorbox}
+
+
+%% as from hysarticle class, same stock page sizing
+\RequirePackage{geometry}
+ \geometry{twoside,
+  paperwidth=210mm,
+  paperheight=297mm,
+  top=18mm,
+  bottom=18mm,
+  %textheight=682pt,
+  textwidth=500pt, % was 522
+  centering,
+  headheight=70pt,
+  headsep=12pt,
+  footskip=18pt,
+  footnotesep=24pt plus 2pt minus 12pt,
+  columnsep=18pt
+ }%
+
+%% leave these two values as they are. TeX needs them to proprely fill in a page
+\hyphenpenalty=500
+\tolerance=500
+
+%% if some word does not hyphenate properly, declare the correct hyphenation here
+%%\hyphenation{a-ze-da-rach,en-vi-ron-ment, bet-ween, thro-u-gh, po-li-ci-es, cau-sed}
+
+% to place images and text top aligned
+% source: http://tex.stackexchange.com/questions/23521/tabular-vertical-alignment-to-top
+%\newcommand{\imagetop}[#1]{\raisebox{-\height+\baselineskip}{#1}}
+
+
+%% macros to render an issue first pages
+
+%% common lengths
+\newlength{\headingwidth}
+\newlength{\leftcol}
+\newlength{\rightcol}
+\newlength{\hysspacer}
+\setlength{\hysspacer}{5mm} % in A4 is 5mm, in old 17x24 was 2.5 mm
+
+\newcommand{\hysLarge}{\Large} % in A4 is \Large, in old 17x24 was \normalsize
+\newcommand{\hyssmall}{\small} % in A4 is \small, in old 17x24 was \scriptsize
+
+%% all-purpose macros ---------------------------------------------------------
+
+% formats page header
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysheader}{\begingroup
+  \setlength{\headingwidth}{\textwidth}
+  \setlength{\leftcol}{40mm}
+  \setlength{\rightcol}{\headingwidth}
+  \addtolength{\rightcol}{-\leftcol}
+  \noindent
+  \begin{tabular}{>{\columncolor[gray]{0.90}}p{\leftcol}>{\columncolor[gray]{0.90}}p{.95\rightcol}}
+  \quad & \quad \\
+   & {\sffamily\bfseries\large\noindent\hfill III CONVEGNO ITALIANO SUI CHIROTTERI\quad} \\
+   & {\sffamily\hfill Trento, 9-11 ottobre 2015\quad} \\
+   & \quad \\
+   \multirow{-4}{*}[5mm]{\includegraphics[height=20mm]{logotipo_girc_300dpi_10cm.png}}  & {\hfill\footnotesize Edited and published by Gruppo Italiano Ricerca Chirotteri -- Associazione Teriologica Italiana\quad} \\
+  \end{tabular}\par
+  \vspace{5mm}
+  \endgroup}
+
+% formats page footer
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysfooter}{\begingroup
+   %\vspace{5mm}\\
+   \vfill
+   \noindent\rule{\textwidth}{0.1mm}
+   \footnotesize\noindent\includegraphics[height=.8\baselineskip]{by-nc-sa.png}{\quad\copyright Associazione Teriologica Italiana onlus, all right reserved -- printed in Italy}\\
+   %\footnotesize\noindent\includegraphics[height=.9\baselineskip]{logo-doaj_gray.png}{\quad This Journal adheres to the Open Access initiative and is listed in the Directory of Open Access Journals (\url{www.doaj.org}).}
+  \endgroup}
+
+% if used, typesets a issue title in the guard page
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysguardtitle}[1]{
+  \def\hysguardtitle{#1}
+}
+
+% if used, typesets a issue editor in the guard page
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysguardeditor}[1]{
+  \def\hysguardeditor{A cura di\\{#1}}
+}
+
+%% Cover macros ---------------------------------------------------------------
+
+% Hystrix front cover, "prima di copertina"
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysfrontcover}{\begingroup
+  {\sffamily\hfill ISSN~\ISSN\\}
+  \vspace{60mm}
+  \flushright
+  \begin{tabular}{p{30mm}p{83mm}}
+    \multirow{3}{*}[8mm]{\includegraphics[height=30mm]{ATIt_300dpi.png}}
+    & \sffamily\fontsize{48}{48}\selectfont\itshape\bfseries HYSTRIX \\
+    & \rmfamily\huge\itshape the Italian Journal of Mammalogy \\
+    & \flushright\sffamily\Large Volume~\volume (\issue)~\textbullet~\volyear \\
+  \end{tabular}
+  \vfill
+  \hfill
+  \parbox[t]{.5\textwidth}{
+    \flushright
+    {\noindent\sffamily\large published by}\\
+    {\noindent\sffamily\Large Associazione Teriologica Italiana}
+    }
+  \endgroup}
+
+% Hystrix front endpaper, "seconda di copertina"
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysfrontendpaper}{\begingroup
+  \hysheader%
+  %\begin{footnotesize} % 17x24 version used footnotesize
+  \noindent\textbf{Comitato Organizzatore}\\
+  {\hysLarge Leonardo~\textsc{Ancillotto}}\\
+  {\hysLarge Marco~\textsc{Ciolli}} \\
+  {\hysLarge Gaetano~\textsc{Fichera}}\\
+  {\hysLarge Giacomo~\textsc{Maltagliati}}\\
+  {\hysLarge Stefania~\textsc{Mazzaracca}}\\
+  {\hysLarge Mauro~\textsc{Mucedda}}\\
+  {\hysLarge Pamela~\textsc{Priori}}\\
+  {\hysLarge Marco~\textsc{Riccucci}}\\
+  {\hysLarge Federica~\textsc{Roscioni}}\\
+  {\hysLarge Martina~\textsc{Spada}}\\
+  {\hysLarge Liana~\textsc{Trentin}}\\
+  \par\vspace{\hysspacer}
+  \noindent\textbf{Comitato Scientifico}\\
+  {\hysLarge Paolo~\textsc{Agnelli}}\\
+  {\hysLarge Leonardo~\textsc{Ancillotto}}\\
+  {\hysLarge Marco~\textsc{Ciolli}} \\
+  {\hysLarge Giacomo~\textsc{Maltagliati}}\\
+  {\hysLarge Mauro~\textsc{Mucedda}}\\
+  {\hysLarge Damiano~\textsc{Preatoni}}\\    
+  {\hysLarge Marco~\textsc{Riccucci}}\\\\
+  {\hysLarge Federica~\textsc{Roscioni}}\\
+  {\hysLarge Danilo~\textsc{Russo}}\\  
+  {\hysLarge Dino~\textsc{Scaravelli}}\\
+  {\hysLarge Martina~\textsc{Spada}}\\
+  \par\vspace{\hysspacer}
+  \noindent\textbf{Segreteria Organizzativa}\\
+  {\hysLarge Myriam~\textsc{Stettermayer}}
+  \par\vspace{\hysspacer}
+  \par%\vspace{\hysspacer}
+  \vfill
+  \begin{footnotesize}
+  {\noindent\textbf{Citazione consigliata}}\\  
+  {\noindent Mucedda M., Roscioni F., Preatoni D.G. (Eds.) III Convegno Italiano sui Chirotteri, Trento, 9-11 ottobre 2015. Gruppo Italiano Ricerca chirotteri -- Associazione Teriologica Italiana.}
+  \par\vspace{\hysspacer}
+  {\noindent\textbf{Gruppo Italiano Ricerca Chirotteri}}\\  
+  Federica~\textsc{Roscioni} (Roma) \textit{Coordinatore}, Mauro~\textsc{Mucedda} (Sassari) \textit{Vice-coordinatore}, Marco~\textsc{Riccucci} (Pisa), Giacomo~\textsc{Maltagliati} (Firenze), Martina~\textsc{Spada} (Varese).
+  \par\vspace{\hysspacer}
+  \noindent\textbf{Associazione Teriologica Italiana Board of Councillors}:
+      Luigi~\textsc{Cagnolaro}$\dagger$ (formerly Museo Civico di Storia Naturale di Milano) \textit{Honorary President}, Adriano~\textsc{Martinoli} (Università degli Studi dell'Insubria, Varese) \textit{President}, Anna~\textsc{Loy} (Università degli Studi del Molise) \textit{Vicepresident}, Gaetano~\textsc{Aloise} (Università della Calabria), Roberta~\textsc{Chirichella} (Università degli Studi di Sassari), Dario~\textsc{Capizzi} (Agenzia Regionale Parchi Regione Lazio),     Daniele~\textsc{Paoloni} (Università degli Studi di Perugia), Danilo~\textsc{Russo} (Università degli Studi di Napoli), Stefania~\textsc{Mazzaracca} \textit{Segretario/Tesoriere}, Giovanni~\textsc{Amori} (CNR-ISE, Roma) \textit{Direttore Responsabile delle Pubblicazioni}, Damiano~\textsc{Preatoni} (Università degli Studi dell'Insubria, Varese) \textit{Responsabile del sito internet e delle pubblicazioni \textsf{on line}}, Filippo~\textsc{Zibordi} (Parco Naturale Adamello Brenta) \textit{Responsabile dell'Ufficio Comunicazione e della Biblioteca}.\par
+    \end{footnotesize}  
+  \hysfooter%
+  \endgroup}
+
+% Hystrix back endpaper, "terza di copertina"
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysbackendpaper}{\begingroup
+  \hysheader %
+  %\begin{footnotesize} % 170x240 version
+  \noindent\textbf{Aims and scope}\\
+Hystrix, the Italian Journal of Mammalogy accepts papers on original research in basic
+and applied mammalogy on fossil and living mammals. The Journal is published both in paper and electronic ``online first'' format. Manuscripts can be published as full papers or
+short notes, as well as reviews on methods or theoretical issues related to mammals. Commentaries can also be occasionally accepted, under the approval by the Editor in Chief. Investigations of local or regional interest, new data about species distribution and range extensions or confirmatory research can be considered only when they have significant implications. Such studies should preferably be submitted as short notes. Manuscripts bearing only a local interest will not be accepted.
+
+\textsl{Full papers} have no limits in length as well as in figure and table number and are abstracted in English. Authors are encouraged to add supplemental material in form of colour figures,
+original datasets and/or computer program source code. Supplemental material and colour figures will appear only on the electronic edition.
+
+\textsl{Short notes} must be about 16000 characters long (including title, author names and affiliations, abstract and references), and do not include supplemental material. They are abstracted in English.
+
+Proceedings of symposia, meetings and/or workshops, and technical reports can be published
+as special supplements to regular issues, under the approval by the Editor in Chief and the
+Associate Editors.
+
+There are no page charges.
+
+  \noindent\textbf{Manuscript submission}\\
+Manuscripts must be submitted electronically registering to the on-line submission system at the Journal web site (\url{http://www.italian-journal-of-mammalogy.it}). A comprehensive Electronic Publication Guide can be downloaded from the Journal web site: Part II of that document contains a detailed step-by-step description of the electronic submission process.
+Authors must submit at least a manuscript file; a cover letter and a copyright transfer form are not necessary since the electronic submission process provides both for manuscript presentation and copyright transfer acceptance. Tables and figures must be included in the manuscript file, whilst other supplemental material (if any) must be uploaded separately. % When submitting, authors should be working at a computer where all of the relevant files for their paper are available. Submission of a typical manuscript requires about 10 minutes, but upload time depends on the speed of the Internet connection.
+  
+  \noindent\textbf{Manuscript structure}\\
+\textsl{Full papers}: manuscript must be divided into sections in the following sequence: title page (page 1), abstract and keywords, (page 2), introduction (from page 3 onwards), materials and methods, results and discussion, acknowledgements, list of symbols (if any), references. Tables, legends of
+figures and figures should be on separate pages as specified above. If necessary and useful to improve manuscript readability, a single section could be divided into subsections or paragraphs.
+If necessary, conclusions and/or any final consideration can be stated as a last paragraph of
+results and discussion.
+ 
+\noindent\textsl{Short notes} %are reserved for brief papers containing critical discussion, short reports and comments and viewpoints on previously published papers, or on arguments
+%of interest in theriological field. Note that Short notes 
+do not have Introduction, Material
+and methods, Results and Discussion, and are organised in a single section. Authors are advised to structure Short notes without subdivision of the text, with an Abstract in English.
+The whole length of the manuscript must not exceed 16000 characters (spaces included), comprehensive of title, author names and affiliations, abstract, text body and references. In a short note references should be kept to a minimum.
+
+  \noindent\textbf{Publication process}\\  
+The Technical Editor checks all submitted manuscripts for compliance with the Instructions to
+Authors. The Editor in Chief then assigns the manuscript to an Associate Editor for the peer-review process. %Any areas that are identified as problematic will be addressed by the assigned Associate Editor in consultation with the corresponding author.
+Once accepted, the manuscript will be typeset and a final galley will be sent to Authors for their approval. Once approved by the Authors, the manuscript will be published ``online first'' and will be printed in the next available issue.
+
+\vfill 
+%\end{footnotesize} % 170x240 version
+\begin{footnotesize} % 170x240 version used scriptsize, A4 is footnotesize
+\noindent\textbf{Privacy statement}\\
+The names and email addresses appearing in this journal will be used
+exclusively for the stated journal's purposes and will not be made available for any other
+purpose or to any other party, as provided by the Italian Law no. 675, 31/12/1996. No notification to the Warrant is needed, as provided in art. 7, sec. 5ter, a), f), Italian Law no. 675,
+31/12/1996.
+
+\noindent\textbf{Open Access Policy}\\
+This journal provides open access to all of its content on the principle that making research freely available to the public supports a greater global exchange
+of knowledge. For more information on this approach, see the Public Knowledge Project
+(\url{http://pkp.sfu.ca}), which has designed this system to improve the scholarly and public
+quality of research, and which freely distributes the journal system as well as other software to
+support the open access publishing of scholarly resources.\par
+\end{footnotesize}  % 170x240 version used scriptsize, A4 is footnotesize
+  \hysfooter
+  \endgroup}
+  
+% Hystrix back cover, "quarta di copertina"
+% ----------------------------------------------------------------------------- 
+\newenvironment{hysbackcover}
+{ % begin commands
+  \hysheader %
+  {}\par
+  {\noindent\rule{\textwidth}{0.1mm}}\par
+   \sffamily\large\vspace{0.4\baselineskip}
+  }
+{ % end commands
+  \hysfooter
+  }
+\newcommand{\paperitem}[3]{%
+  \parbox[b]{.8\textwidth}{\hangindent=0.8cm \rmfamily\textsc{{#1}}~--~{\sffamily {#2}}\dotfill}\hfill\parbox[b]{.1\textwidth}{#3}
+  \par\vspace{0.4\baselineskip}
+}
+
+%% Front matter macros --------------------------------------------------------
+
+% page I, the guard page, always present
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysguardpage}{\begingroup % Hystrix front page
+  %{\sffamily\hfill ISSN~\ISSN\\}
+  \vspace{60mm}
+  \begin{tcolorbox}[size=tight,oversize,
+    sharp corners,
+    colback=black,
+    colframe=black,
+    left=56pt,
+    right=90pt,
+    top=10pt,
+    fontupper=\Huge]
+    \begin{tabular}{p{110mm}p{40mm}}
+      & \multirow{7}{*}{\includegraphics[width=75mm]{bat_moon.png}} \\
+      & \\
+      & \\
+      \fontsize{30}{30}\selectfont\textcolor{white}{\textbf{III CONVEGNO ITALIANO}} & \\ [2mm]
+      \fontsize{30}{30}\selectfont\textcolor{white}{\textbf{SUI CHIROTTERI}} & \\ [3mm]
+      \huge\textcolor{white}{Trento, 9-11 ottobre 2015} & \\
+      & \\
+    \end{tabular}
+  \end{tcolorbox}
+  \ifx{\hysguardtitle}% is there any issue title to typeset?
+      \relax          % no, go on
+    \else             % yes, typeset it
+      {\parbox[t]{\textwidth}{
+         \vspace{20mm}\centering\rmfamily\bfseries\Huge\hysguardtitle}}\fi  
+         
+  \ifx{\hysguardeditor}% is there any issue editor name to typeset?
+      \relax          % no, go on
+    \else             % yes, typeset it
+      {\parbox[t]{\textwidth}{
+         \vspace{2mm}\centering\rmfamily\Large\hysguardeditor}}\fi  
+  \vfill
+  \hfill
+  \parbox[t]{.5\textwidth}{
+    \flushright
+    {\noindent\sffamily\large published by}\\
+    {\noindent\sffamily\Large Gruppo Italiano Ricerca Chirotteri\\\noindent\sffamily\Large Associazione Teriologica Italiana}
+    }
+  \endgroup}
+
+% page II, verso of page I, colophon and disclaimers
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hyscolophon}{\begingroup % Hystrix colophon
+  \sffamily\small
+  {\noindent\bfseries\copyright \includegraphics[height=.8\baselineskip]{by-nc-sa.png} \printedyear~Associazione Teriologica Italiana. All rights reserved.}\\
+ 
+ % \noindent This Journal as well as the individual articles contained in this issue are protected under copyright and Creative Commons license by Associazione Teriologica Italiana. The following terms and conditions apply: all on-line documents and web pages as well as their parts are protected by copyright, and it is permissible to copy and print them only for private, scientific and noncommercial use. Copyright for articles published in this journal is retained by the authors, with first publication rights granted to the journal. By virtue of their appearance in this Open Access journal, articles are free to be used, with proper attribution, in educational and other non-commercial settings. This Journal is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Italy License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc-sa/3.0/it/} or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.  
+  
+  %\vspace{10mm}
+  
+  %\noindent\textbf{Publication information:} Hystrix, the Italian Journal of Mammalogy is published as a printed edition (ISSN 0394-1914) twice per year. A single copy of the printed edition is sent to all members of Associazione Teriologica Italiana. The electronic edition (ISSN 1825-5272), in Adobe\textsuperscript{\textregistered}  Acrobat\textsuperscript{\textregistered}  format is published ``online first'' on the Journal web site (\url{http://italian-journal-of-mammalogy.it}). Articles accepted for publication will be available in electronic format prior to the printed edition, for a prompt access to the latest peer-reviewed research.
+   
+  %\vspace{10mm}
+  
+  %\noindent\textbf{Best Paper Award}\\
+%Associazione Teriologica Italiana established a Best Paper Award for young researchers.
+%Eligible researchers are leading authors less than 35 years old, and within 7 yers from their PhD (but young researcher at an even earlier stage of their career, i.e. without a PhD, are also eligible), who have expressed interest in the award in the Communications to the Editor (step 1 of the online submission procedure; for details, see the Electronic Publication Guide; \url{http://www.italian-journal-of-mammalogy.it/public/journals/3/authguide.pdf}).\\
+%If the eligible leading researcher is not the corresponding author, the latter should express interest on the leading researcher's behalf. Criteria are innovation, excellence and impact on the scientific community (e.g., number of citations).\\
+%The award will be assegned yearly, in the second semester of the year following that of reference (i.e., Best Paper Award for 2013 will be assigned in the second semester of 2014). The Editorial Commitee is responsible to assign the award. A written motivation will be made public on the journal website.
+  \null\vfill
+  \begin{center}
+  {\sffamily Finito di stampare nel mese di \printedmonth~\printedyear\/~-~Typeset in \LaTeX\par
+  \large\printedpress}
+  \end{center}
+  \endgroup}
+
+% page III
+% ----------------------------------------------------------------------------- 
+\newcommand*{\hysfrontpage}{\begingroup % The issue title page
+  %{\hfill\small \textit{Hystrix, It. J. Mamm (2012)} VIII Congr. It. Teriologia}
+  \vfill
+  \centering
+  {\noindent\HUGE\bfseries{III Congresso Italiano sui Chirotteri}}\\
+  \medskip
+  {\noindent\LARGE Trento, 9~-~11 ottobre 2015}\\
+  \bigskip
+  {\noindent\Huge Riassunti: Comunicazioni e Poster}\par
+  \vfill
+  %{\noindent\LARGE\textsc{A cura di}}\\[\baselineskip]
+  %{\noindent\LARGE Claudio Prigioni, Damiano G. Preatoni, Elisa Masseroni}\par
+  %\vfill
+  {\noindent\LARGE\textsc{Organizzato da}}\\[\baselineskip]
+  {\noindent\LARGE Gruppo Italiano Ricerca Chirotteri -- Associazione Teriologica Italiana}\par
+  {\noindent\LARGE Universita degli Studi di Trento,\\Dipartimento di Ingegneria Civile, Ambientale e Meccanica}\par\par
+  \bigskip
+  %&{\noindent\LARGE\textsc{In collaborazione con}}\\[\baselineskip]
+  \begin{center}
+  \begin{table}[hb]
+  \sffamily\large
+  \begin{tabular}{*{3}{p{.33\textwidth}}}
+    \centering \includegraphics[height=2.5cm]{logo_DICAM_web_1.jpg} &
+    \centering \includegraphics[height=2.5cm]{Logo_ATIt_ritaglio.png} &
+    \centering \includegraphics[height=2.5cm]{logotipo_girc_300dpi_10cm.png} \\
+  \end{tabular}
+  \end{table}
+    {\noindent\LARGE\textsc{Con il patrocinio di}}\\[\baselineskip]
+    \centering \includegraphics[height=2.5cm]{ISPRA_CENTRATO_colore.png}
+  \end{center}\par
+  \vskip3mm
+  \begin{tcolorbox}[size=tight,oversize,
+      sharp corners,
+      colback=black,
+      colframe=black,
+      left=56pt,
+      right=90pt,
+      top=10pt,
+      fontupper=\small]
+    \center\selectfont\textcolor{white}{Sponsored by}\\
+    \includegraphics[width=60mm]{Logo_Pettersson_h_ed2_www2_20.png}
+  \end{tcolorbox}
+
+  \endgroup}
+
+%% page IV
+\newcommand*{\hysbackpage}{\begingroup % The issue back page
+  {\hfill\small \textit{Hystrix, It. J. Mamm (2012)} VIII Congr. It. Teriologia}
+  \vfill
+  \centering
+  {\noindent\HUGE\bfseries{VIII Congresso Italiano di Teriologia}}\\
+  \vspace{15mm}
+  {\noindent\LARGE\textsc{Sede}}\\
+  {\noindent\Large Salone degli Scenografi, presso il Teatro Municipale di Piacenza, via Verdi 41 (Sala congresso)}\\
+  {\noindent\Large Urban Center, via Scalabrini 113 (Spazio poster e sale riunioni)}\\
+  {\noindent\Large Piacenza (PC)}\par
+  \vspace{8mm}
+  {\noindent\LARGE\textsc{Comitato Organizzatore}}\\
+  {\noindent\Large A.~Martinoli, E.~Masseroni, A.~Torselli, E.~Merli, C.~Francou, N.~Ferrari}\par
+  \vspace{8mm}
+  {\noindent\LARGE\textsc{Comitato Scientifico}}\\  
+  {\noindent\Large G.~Amori, M.~Apollonio, S.~Bertolino, C.~Biancardi, F.~Cagnacci, L.~Cagnolaro, E.~Capanna, L.~Contoli, N.~Ferrari, P.~Genovesi, S.~Lovari, A.~Loy, A.~Martinoli, E.~Merli, A.~Mortelliti, C.~Prigioni, D.~Russo, M.~Scandura, M.~Spada}\par
+  \vspace{8mm}
+  {\noindent\LARGE\textsc{Segreteria}}\\  
+  {\noindent\Large Elisa Masseroni c/o Università degli Studi dell'Insubria, via Dunant 3, 21100 Varese}\\
+  {\noindent\Large\texttt{segreteria.atit@gmail.com}}\par
+  \vspace{25mm}
+  {\noindent\LARGE\textsc{Con il contributo di}}\\  
+  
+  \vspace{25mm}
+  \flushleft
+  {\noindent\Large\textsc{Citazione consigliata}}\\  
+  {\noindent\large Prigioni C., Preatoni D.G., Masseroni E. (Eds.) 2012. VI Congr. It. Teriologia, Hystrix, It. J. Mamm., (N.S.) SUPP. 2012: 1-XXX}\par
+  \vspace{8mm}
+  {\noindent\Large\textsc{Illustrazioni di}}\\    
+  {\noindent\large Autore delle Illustrazioni}\par
+\endgroup}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: f
+%%% End: 

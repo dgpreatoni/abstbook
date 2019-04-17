@@ -1,0 +1,35 @@
+% Abstract file structure example : 
+% \abstitle{title here}
+% \absauthors{names and superscripts for affiliations here}
+% \absaddress{affiliations, starting each one with its superscripts, separate affiliations with a \break}
+% \abstext{
+% \index{author abbreviated name, to be placed in authors' index}
+% \index{create an index entry for each author}
+%  The abstract text
+% }
+
+%% Abstract title
+\abstitle{Composizione forestale e comunità dei chirotteri nel Parco Nazionale delle Foreste Casentinesi, Monte Falterona e Campigna: il ruolo dei boschi di conifere}
+
+%% Author names
+\absauthors{T. \textsc{Campedelli}$^1$, L. \textsc{Guglielmo}$^1$, S. \textsc{Cutini}$^1$, D. \textsc{Scaravelli}$^2$, P. \textsc{Priori}$^2$, G. \textsc{Tellini Florenzano}$^1$}
+
+\absaddress{$^1$D.r.e.am. Italia, Via Garibaldi 3, 52015 Pratovecchio (AR); emberiza1978@gmail.com\break
+$^2$St.E.R.N.A., Via Giuseppe Pedriali 12, 47121, Forlì (FC)}
+
+%% Abstract text
+\abstext{
+%% Author names for index. State each author separately using \index{Doe J.}
+\index{Campedelli T.}
+\index{Guglielmo L}
+\index{Cutini S.}
+\index{Scaravelli D.}
+\index{Priori P.}
+\index{Tellini Florenzano G.}
+%% The actual abstract text goes here
+Negli ultimi anni il Parco Nazionale delle Foreste Casentinesi, Monte Falterona e Campigna ha promosso la realizzazione di alcuni approfondimenti sulla chirotterofauna. I risultati di questi studi hanno permesso non solo di definire in dettaglio la distribuzione e l'abbondanza relativa di almeno 20 specie, ma anche di approfondirne le preferenze ecologiche. Considerando le caratteristiche ambientali dell'area protetta, coperta per oltre il 90\% da foreste, tra cui alcuni dei boschi meglio conservati d'Italia (es. Foreste di Sasso Fratino e Camaldoli), sono state in particolare approfondite le relazioni esistenti tra la struttura e la composizione del bosco e la presenza delle diverse specie di chirotteri. In questo contributo vengono in particolare presentati i risultati di una specifica indagine volta a valutare l'effetto dei boschi di conifere sulla presenza dei chirotteri. Alcuni dei boschi di maggior interesse del Parco sono infatti costituiti da abetine, pure o miste, mature e stramature.
+
+Nel biennio 2014--2015, nel periodo agosto-settembre, sono stati effettuati rilievi standardizzati, ripetuti in ciascuno dei due anni, percorrendo transetti in macchina e registrando la presenza e l'attività dei chirotteri mediante bat-detector (Pettersson D240X). L'identificazione delle specie è avvenuta mediante l'analisi delle tracce audio utilizzando il software Adobe Audition (CC 2014.2), confrontando i dati bioacustici registrati con quelli disponibili in letteratura. La localizzazione dei contatti è stata registrata mediante GPS. Complessivamente sono stati raccolti con questo metodo dati di presenza di 13 specie, a cui si aggiungono alcuni contatti ascrivibili a specie gemelle (\emph{M.myotis}/\emph{M.blythii}) e \emph{P.austriacus}/\emph{P.auritus}) non identificabili con sicurezza in base ai soli parametri bioacustici. Sono quindi state selezionate 8 specie (\emph{Pipistrellus pipistrellus}, \emph{P. kuhlii}, \emph{Hypsugo savii}, \emph{Eptesicus serotinus}, \emph{Nyctalus noctula}, \emph{Nyctalus leisleri}, \emph{Barbastella barbastellus} e \emph{Miniopterus schreibersii}) tra quelle con maggior numero di contatti (n$\geq$12) e per ciascuna di queste sono stati elaborati due diversi modelli ecologici utilizzando MaxEnt. Un primo modello è stato costruito testando l'effetto di variabili ambientali di tipo generale (uso del suolo, clima, morfologia del territorio) mentre nel secondo alle variabili risultate significative nel primo sono state aggiunte variabili descrittive dell'età del bosco e della superficie occupata dalle conifere. Per quanto riguarda la presenza dei boschi vetusti è stata utilizzata una variabile di tipo categoriale che assume valore 1 se il dato è all'interno delle Riserve Statali, dove si concentrano i boschi vetusti, 0 se è invece all'esterno. Per quanto riguarda invece la superficie delle conifere, la variabile esprime la percentuale occupata da questi boschi rispettivamente in un intorno di 100, 300 e 600 metri rispetto alla localizzazione del contatto. Utilizzando la variazione dell'AIC (\textit{Akaike Information Criterion}), calcolato tra i migliori modelli elaborati nei due step, è possibile valutare l'incremento di informazione che si ottiene aggiungendo le nuove variabili. Maggiore sarà la differenza di AIC, maggiore sarà l'importanza che queste variabili hanno nell'influenzare la presenza delle specie.
+
+I risultati evidenziano un effetto positivo molto importante dei boschi di conifere e non solo dei soprassuoli più vecchi. In cinque casi su otto, la variabile ``boschi di conifere'' determina un miglioramento nell'efficacia del modello, con un effetto positivo particolarmente evidente per \emph{P. kuhlii} e \emph{H. savii}. Per \emph{P. pipistrellus} è l'effetto congiunto delle variabili ``boschi di conifere'' e boschi vetusti a determinare un miglioramento della capacità predittiva del modello come risulta per altro anche per \emph{N. noctula}. Mentre per \emph{H.savii}, \emph{E. serotinus} e \emph{N.noctula} l'effetto positivo della variabile ``boschi di conifere'' si registra in un intorno di 600 metri, per \emph{P. pipistrellus} e \emph{P. kuhlii} l'effetto è sensibile a una scala di 300 metri. Nessun effetto si registra invece per \emph{B.barbastellus} e \emph{N.leisleri}, che mostrano di prediligere le foreste mature senza evidenziare alcuna particolare preferenza per i boschi di conifere, così come per \emph{M.schreibersii}.
+} %% remember to close the abstract text block brace!!
