@@ -1,6 +1,6 @@
 A LaTeX + R set-up to handle abstracts for a conference and produce an abstracts booklet.
 
-This particular concoction has been in use since 2005 (with continuous polishing) to make abstract booklets for the Ialian Mammal Society congresses (http://www.mammiferi.it).
+This particular concoction has been in use since 2005 (with continuous polishing) to make abstract booklets for the Ialian Mammal Society congresses (http://www.mammiferi.org).
 
 History
 -------
