@@ -1,3 +1,11 @@
+A LaTeX + R set-up to handle abstracts for a conference and produce an abstracts booklet.
+
+This particular concoction has been in use since 2005 (with continuous polishing) to make abstract booklets for the Ialian Mammal Society congresses (http://www.mammiferi.it).
+
+History
+-------
+
+I did, at that time (circa 2005), some research on available "abstract booklet" LaTeX packages/toolchains, and I decided to use the abstbook  
 Some pointers on abstrat booklets...
 
 http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/misc/abstbook.cls
