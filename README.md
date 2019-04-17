@@ -5,16 +5,16 @@ This particular concoction has been in use since 2005 (with continuous polishing
 History
 -------
 
-I did, at that time (circa 2005), some research on available "abstract booklet" LaTeX packages/toolchains, and I decided to use the abstbook  
-Some pointers on abstrat booklets...
+I did, at that time (circa 2005), some research on available "abstract booklet" LaTeX packages/toolchains, and I decided to use the `abstbook` class.
+Some references here: 
+  - the `abstbook` class on CTAN: http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/misc/abstbook.cls
+  - a thread on Mac OSX TeX thatr gave me some inspiration: http://tug.org/pipermail/macostex-archives/2004-March/005037.html
+ 
+How it works
+------------
 
-http://ctan.mirror.garr.it/mirrors/CTAN/macros/latex/contrib/misc/abstbook.cls
+I decided to start from the `abstbook` class, bit with some kinks, modifying it to use KOMA-script `scrreprt` class, which I personally find more flexible than `article`.
 
-http://tug.org/pipermail/macostex-archives/2004-March/005037.html
-http://www.iciam07.ch/ICIAM07-AbstractBook1.pdf
-
-
-I decided to start from the abstbook class, modifying it to use KOMA-script scrreprt (since articles already rely on scrartcl)
 
 Note that the new hysabstract.cls class is intended to typeset just the "mainmatter" of an abstract booklet. Actually, one can have just a single LaTeX source for an abstracts booklet, but "the Hystrix way" works lihe that:
 - cover: is made using cover.tex (based on memoir) using files in the 'frontmatter' directory of an issue.
